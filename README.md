@@ -3,10 +3,12 @@ This is an example and test case of how I can merge two sorted linked list
 
 here's the node class
 
+<pre>
 class ListNode{
   int val;
   ListNode next;
 }
+</pre>
 
 And here's the interface.
 
