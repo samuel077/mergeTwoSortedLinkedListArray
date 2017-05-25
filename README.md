@@ -10,10 +10,12 @@ class ListNode{
 
 And here's the interface.
 
-Solution {<br/>
+<pre>
+Solution {
   public ListNode mergeTwoSortedLinkedListArray( ListNode head1, ListNode head2 )
-  {
-    // return the merged sorted array;
+  { 
+    &nbsp;&nbsp;// return the merged sorted array;
     return null;
   }
 }
+</pre>
