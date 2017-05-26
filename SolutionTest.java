@@ -10,6 +10,8 @@ public class SolutionTest {
 	
 	private ListNode node = null;
 	private ListNode node2 = null;
+	private ListNode node3 = null;
+	private ListNode node4 = null;
 
 	@Before
 	public void setupTestData() {
@@ -17,24 +19,45 @@ public class SolutionTest {
 	}
 	
 	@Test
-	public void firstTest(){
+	public void testBasicMerge(){
 		Solution solution = new Solution();
 		List<Integer> testArray = new ArrayList<>();
-		ListNode result = solution.mergeTwoSortedNode(node, node2);
+		ListNode result = solution.merge(node, node2);
 		while(result.next != null) {
 			testArray.add(result.val);
+			result = result.next;
 		}
+		testArray.add(result.val);
 		
 		// sorted
 		assertEquals(testArray.get(0), new Integer(1));
-		assertEquals(testArray.get(1), new Integer(2));
+		assertEquals(testArray.get(1), new Integer(3));
 		assertEquals(testArray.get(2), new Integer(3));
+		assertEquals(testArray.get(3), new Integer(5));
 		
 	}
 	
+	@Test
+	public void testMergeEmptyArray() {
+		Solution solution = new Solution();
+		List<Integer> testArray = new ArrayList<>();
+		ListNode result = solution.merge(node3, node4);
+		while(result.next != null) {
+			testArray.add(result.val);
+			result = result.next;
+		}
+		testArray.add(result.val);
+		// sorted
+		assertEquals(testArray.get(0), new Integer(1));
+		assertEquals(testArray.get(1), new Integer(3));
+		assertEquals(testArray.get(2), new Integer(5));
+	}
+	
 	private void initialData(){
-		int [] list1 = new int[]{2};
+		int [] list1 = new int[]{3,5};
 		int [] list2 = new int[]{1,3};
+		int [] list3 = new int[]{};
+		int [] list4 = new int[]{1,3,5};
 		
 		ListNode tempNode1 = null;
 		for(int i = 0 ; i < list1.length ; i++) {
@@ -67,6 +90,39 @@ public class SolutionTest {
 			}
 		}
 		node2 = tempNode2;
+		
+		ListNode tempNode3 = null;
+		for(int i = 0 ; i < list3.length ; i++) {
+			ListNode listNode = new ListNode();
+			listNode.val = list3[i];
+			listNode.next = null;
+			
+			if(node3 == null) {
+				node3 = listNode;
+				tempNode3 = node;
+			} else {
+				node3.next = listNode;
+				node3 = node3.next;
+			}
+		}
+		node3 = tempNode3;
+		
+		ListNode tempNode4 = null;
+		for(int i = 0 ; i < list4.length ; i++) {
+			ListNode listNode = new ListNode();
+			listNode.val = list4[i];
+			listNode.next = null;
+			
+			if(node4 == null) {
+				node4 = listNode;
+				tempNode4 = node4;
+			} else {
+				node4.next = listNode;
+				node4 = node4.next;
+			}
+		}
+		node4 = tempNode4;
+		
 		System.out.println("done initialzation");
 	}
 	

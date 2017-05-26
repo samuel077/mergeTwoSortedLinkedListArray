@@ -1,7 +1,7 @@
 
 public class Solution {
 	
-	public ListNode mergeTwoSortedNode(ListNode head1, ListNode head2) {
+	public ListNode merge(ListNode head1, ListNode head2) {
 		
 		ListNode returnList = null;
 		ListNode index1, index2, returnHead;
