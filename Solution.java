@@ -46,7 +46,7 @@ public class Solution {
 					returnHead = index2;
 				}
 				else {
-					// insert index1
+					// insert index2
 					returnList.next = index2;
 					returnList = returnList.next;
 				}
@@ -54,7 +54,7 @@ public class Solution {
 				if(index2.next != null) {
 					index2 = index2.next;
 				} else {
-					// no more elements in index2, point to index2 directly.
+					// no more elements in index2, point to index1 directly.
 					returnList.next = index1;
 					break;
 				}
